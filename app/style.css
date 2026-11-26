@@ -1,0 +1,205 @@
+/* Indonesia in Numbers — a warm-paper statistical annual look: ink on cream,
+   deep red and teal as the working colours, gold for the second series.
+   System fonts only, so the first load stays small and nothing is fetched. */
+
+:root {
+  --paper: #faf7f1;
+  --card: #ffffff;
+  --ink: #20303c;
+  --ink-soft: #4c5c66;
+  --faint: #7a8a94;
+  --line: #e3ddd0;
+  --red: #b3232a;
+  --teal: #0f766e;
+  --gold: #b98a1c;
+  --blue: #2563eb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+h2, h3, .kpi-value, .brand-text strong {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a { color: var(--red); }
+
+/* Masthead */
+
+.masthead {
+  background: var(--ink);
+  color: #f5efe2;
+  border-bottom: 4px solid var(--red);
+}
+.masthead-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 28px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+.brand-mark svg { display: block; }
+.brand-mark circle { fill: var(--gold); }
+.brand-text strong { display: block; font-size: 21px; letter-spacing: 0.2px; }
+.brand-text small { display: block; color: #c9cfd2; font-size: 12px; letter-spacing: 0.4px; text-transform: uppercase; }
+.main-nav { display: flex; flex-wrap: wrap; gap: 4px; margin-left: auto; }
+.main-nav a {
+  color: #e8e2d2;
+  text-decoration: none;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 14.5px;
+}
+.main-nav a:hover { background: rgba(255, 255, 255, 0.12); }
+.main-nav a.nav-on { background: var(--red); color: #fff; }
+
+/* Layout */
+
+.page { max-width: 1080px; margin: 0 auto; padding: 26px 20px 10px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 2px rgba(32, 48, 60, 0.05);
+}
+.card h3 { margin: 0 0 8px; font-size: 18px; }
+.card p { margin: 0 0 8px; color: var(--ink-soft); }
+.caption { font-size: 12.5px; color: var(--faint); margin: 8px 0 0; }
+.chart { width: 100%; height: auto; display: block; }
+
+/* Hero and KPI band */
+
+.hero { padding: 10px 2px 2px; }
+.hero-kicker {
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  font-size: 12.5px;
+  margin: 0 0 6px;
+}
+.hero h2 { font-size: 34px; line-height: 1.2; margin: 0 0 10px; max-width: 22em; }
+.hero-sub { color: var(--ink-soft); max-width: 46em; margin: 0; }
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 22px;
+}
+.kpi {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--teal);
+  border-radius: 10px;
+  padding: 13px 15px 11px;
+}
+.kpi:nth-child(even) { border-top-color: var(--red); }
+.kpi-label { font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--faint); font-weight: 700; }
+.kpi-value { font-size: 27px; margin: 2px 0; }
+.kpi-note { font-size: 13px; color: var(--ink-soft); }
+.kpi-source { font-size: 11px; color: var(--faint); margin-top: 5px; }
+
+/* Page heads */
+
+.page-head h2 { font-size: 29px; margin: 4px 0 6px; }
+.page-head p { color: var(--ink-soft); max-width: 48em; margin: 0 0 6px; }
+
+/* Donut + legend */
+
+.donut-wrap { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.donut { width: 190px; height: auto; flex: none; }
+.legend { display: flex; flex-direction: column; gap: 8px; min-width: 210px; }
+.legend-row { display: flex; align-items: center; gap: 9px; font-size: 14px; }
+.swatch { width: 13px; height: 13px; border-radius: 3px; flex: none; }
+.legend-label { color: var(--ink-soft); }
+
+/* Provinces controls and table */
+
+.controls { display: flex; flex-wrap: wrap; gap: 12px 22px; align-items: center; margin-bottom: 12px; }
+.search-label { font-size: 14px; color: var(--ink-soft); display: flex; align-items: center; gap: 8px; }
+.search-label input {
+  font: inherit;
+  font-size: 14.5px;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  min-width: 210px;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font: inherit;
+  font-size: 13px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.chip:hover { border-color: var(--teal); }
+.chip-on { background: var(--teal); border-color: var(--teal); color: #fff; }
+
+.prov-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.prov-table th, .prov-table td { padding: 7px 9px; border-bottom: 1px solid var(--line); text-align: left; }
+.prov-table td.num, .prov-table th { white-space: nowrap; }
+.prov-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.prov-table tbody tr:hover { background: #f4efe3; }
+.th-sort {
+  font: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+.th-sort:hover { color: var(--red); }
+
+/* Footer */
+
+.site-footer {
+  max-width: 1080px;
+  margin: 26px auto 0;
+  padding: 18px 20px 30px;
+  border-top: 1px solid var(--line);
+  color: var(--faint);
+  font-size: 13px;
+}
+.site-footer p { margin: 0 0 5px; }
+
+/* Phone layout */
+
+@media (max-width: 860px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+  .hero h2 { font-size: 27px; }
+  .main-nav { margin-left: 0; }
+  .prov-table { font-size: 12.5px; }
+  .prov-table th, .prov-table td { padding: 6px 5px; }
+  .donut { width: 150px; }
+}

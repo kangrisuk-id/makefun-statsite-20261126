@@ -192,6 +192,29 @@ a { color: var(--red); }
 }
 .site-footer p { margin: 0 0 5px; }
 
+/* Keyboard focus and the sticky table head */
+
+.chip:focus-visible, .th-sort:focus-visible, .main-nav a:focus-visible,
+.search-label input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.prov-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--card);
+}
+
+/* Print: the annual on paper — drop the dark masthead band, keep the ink. */
+
+@media print {
+  .masthead { background: #fff; color: var(--ink); border-bottom: 2px solid var(--ink); }
+  .brand-text small, .main-nav a { color: var(--ink-soft); }
+  .main-nav { display: none; }
+  .card, .kpi { box-shadow: none; break-inside: avoid; }
+  body { background: #fff; }
+}
+
 /* Phone layout */
 
 @media (max-width: 860px) {
